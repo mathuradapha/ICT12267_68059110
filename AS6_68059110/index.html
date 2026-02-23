@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <title>Sweet Cafe</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Itim&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+<!-- DARK MODE TOGGLE -->
+<button class="dark-toggle" onclick="toggleDark()">🌙</button>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <h2>Sweet Cafe ☕</h2>
+  <ul>
+    <li><a href="#hero">Home</a></li>
+    <li><a href="#menu">Menu</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+<div class="banner">
+  <div class="slides" id="slides">
+    <img src="https://i.pinimg.com/1200x/44/8b/47/448b475edb6f66896e84fdcea1280b4f.jpg">
+    <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085">
+    <img src="https://i.pinimg.com/1200x/27/de/c7/27dec758058235c17007aa6911785865.jpg">
+    <img src="https://i.pinimg.com/736x/29/92/f9/2992f9f5be5d5fedf71aab332332eb43.jpg">
+    <img src="https://i.pinimg.com/1200x/e2/92/b3/e292b3808e02b4777042470e8a3220b0.jpg">
+  </div>
+</div>
+<!-- HERO -->
+<section class="hero" id="hero">
+  <h1 class="animate">Sweet Cafe ☕</h1>
+  <p>คาเฟ่น่ารัก อบอุ่น หวานละมุน</p>
+  <button onclick="openPromo()">🎉 โปรโมชั่น</button>
+  <button onclick="openContact()">📩 ติดต่อเรา</button>
+</section>
+
+
+
+<!-- SEARCH -->
+<section class="search">
+  <input type="text" id="searchInput" placeholder="ค้นหาเมนู..." onkeyup="searchMenu()">
+</section>
+
+<!-- MENU -->
+<section class="cards" id="menu">
+  <h2>เมนูแนะนำ</h2> 
+  <div class="card-container" id="menuList">
+<!-- แถวที่ 1 -->
+<div class="card">
+  <img src="images/latte.jpg" alt="Latte">
+  <h3>Latte</h3>
+  <p>กาแฟลาเต้</p>
+</div>
+
+<div class="card">
+  <img src="images/milktea.jpg" alt="Milk Tea">
+  <h3>Milk Tea</h3>
+  <p>ชานมหอมมัน</p>
+</div>
+
+<div class="card">
+  <img src="images/brownie.jpg" alt="Brownie">
+  <h3>Brownie</h3>
+  <p>บราวนี่ช็อกโกแลต</p>
+</div>
+
+<div class="card">
+  <img src="images/cake.jpg" alt="Strawberry Cake">
+  <h3>Strawberry Cake</h3>
+  <p>เค้กสตรอว์เบอร์รี</p>
+</div>
+<!-- แถวที่ 2 -->
+  <div class="card">
+    <img src="images/coffee.jpg">
+    <h3>Americano</h3>
+    <p>กาแฟดำเข้มข้น</p>
+  </div>
+
+  <div class="card">
+    <img src="images/greentea.jpg">
+    <h3>Green Tea</h3>
+    <p>ชาเขียวหอมละมุน</p>
+  </div>
+
+  <div class="card">
+    <img src="images/croissant.jpg">
+    <h3>Croissant</h3>
+    <p>ครัวซองต์กรอบนอกนุ่มใน</p>
+  </div>
+
+  <div class="card">
+    <img src="images/cupcake.jpg">
+    <h3>Cupcake</h3>
+    <p>คัพเค้กนุ่มฟู</p>
+  </div>
+<!-- แถวที่ 3 -->
+  <div class="card">
+  <img src="images/cappuccino.jpg">
+  <h3>Cappuccino</h3>
+  <p>คาปูชิโน่ฟองนมนุ่ม</p>
+</div>
+
+<div class="card">
+  <img src="images/mocha.jpg">
+  <h3>Mocha</h3>
+  <p>มอคค่าช็อกโกแลต</p>
+</div>
+
+<div class="card">
+  <img src="images/caramel.jpg">
+  <h3>Caramel Macchiato</h3>
+  <p>คาราเมลหอมหวาน</p>
+</div>
+
+<div class="card">
+  <img src="images/strawberrysmoothie.jpg">
+  <h3>Strawberry Smoothie</h3>
+  <p>สมูทตี้สตรอว์เบอร์รีเย็นฉ่ำ</p>
+</div>
+
+<!-- แถวที่ 4 -->
+<div class="card">
+  <img src="images/lemontea.jpg">
+  <h3>Lemon Tea</h3>
+  <p>ชามะนาวสดชื่น</p>
+</div>
+
+<div class="card">
+  <img src="images/thaitea.jpg">
+  <h3>Thai Tea</h3>
+  <p>ชาไทยเข้มข้น</p>
+</div>
+
+<div class="card">
+  <img src="images/chocolate.jpg">
+  <h3>Iced Chocolate</h3>
+  <p>โกโก้เย็นเข้มข้น</p>
+</div>
+
+<div class="card">
+  <img src="images/honeytoast.jpg">
+  <h3>Honey Toast</h3>
+  <p>ฮันนี่โทสต์หวานหอม</p>
+</div>
+
+<!-- แถวที่ 5 -->
+<div class="card">
+  <img src="images/cheesecake.jpg">
+  <h3>Cheesecake</h3>
+  <p>ชีสเค้กนุ่มละมุน</p>
+</div>
+
+<div class="card">
+  <img src="images/tiramisu.jpg">
+  <h3>Tiramisu</h3>
+  <p>ทีรามิสุสไตล์อิตาลี</p>
+</div>
+
+<div class="card">
+  <img src="images/muffin.jpg">
+  <h3>Blueberry Muffin</h3>
+  <p>มัฟฟินบลูเบอร์รี</p>
+</div>
+
+<div class="card">
+  <img src="images/donut.jpg">
+  <h3>Donut</h3>
+  <p>โดนัทหวานนุ่ม</p>
+</div>
+  </div>
+</section>
+
+
+
+<!-- FOOTER -->
+<footer>
+  <p>Sweet Cafe © 2026</p>
+
+  <div class="social">
+    <a href="https://facebook.com" target="_blank">
+      <i class="fa-brands fa-facebook"></i>
+    </a>
+    <a href="https://instagram.com" target="_blank">
+      <i class="fa-brands fa-instagram"></i>
+    </a>
+    <a href="https://line.me" target="_blank">
+      <i class="fa-brands fa-line"></i>
+    </a>
+  </div>
+</footer>
+<!-- BACK TO TOP -->
+<a href="#hero" class="back-to-top">↑</a>
+
+<!-- MODAL -->
+<div class="modal" id="promoModal">
+  <div class="modal-content">
+    <h2>🎉 โปรโมชั่นพิเศษ</h2>
+    <p>ซื้อ 1 แถม 1 ทุกเมนู!</p>
+    <img src="images/promo.jpg" alt="promo" class="promo-img">
+    <button onclick="closePromo()">ปิด</button>
+  </div>
+</div>
+
+<div class="modal" id="contactModal">
+  <div class="modal-content contact-box">
+    <h2>📩 ติดต่อ Sweet Cafe</h2>
+    <p>กรอกข้อมูลเพื่อรับข่าวสารและโปรโมชั่น 💖</p>
+
+    <form>
+      <input type="text" placeholder="ชื่อของคุณ" required>
+      <input type="email" placeholder="อีเมล" required>
+      <textarea placeholder="ข้อความถึงร้าน" rows="4"></textarea>
+      <button type="submit">ส่งข้อความ</button>
+    </form>
+
+    <button class="close-btn" onclick="closeContact()">ปิด</button>
+  </div>
+</div>
+
+<script>
+function toggleDark() {
+  document.body.classList.toggle("dark");
+}
+
+function openModal() {
+  document.getElementById("modal").style.display = "flex";
+}
+
+function closeModal() {
+  document.getElementById("modal").style.display = "none";
+}
+
+function searchMenu() {
+  let input = document.getElementById("searchInput").value.toLowerCase();
+  let cards = document.querySelectorAll(".card");
+
+  cards.forEach(card => {
+    let text = card.innerText.toLowerCase();
+    card.style.display = text.includes(input) ? "block" : "none";
+  });
+}
+
+
+function openPromo() {
+  document.getElementById("promoModal").style.display = "flex";
+}
+function closePromo() {
+  document.getElementById("promoModal").style.display = "none";
+}
+
+function openContact() {
+  document.getElementById("contactModal").style.display = "flex";
+}
+function closeContact() {
+  document.getElementById("contactModal").style.display = "none";
+}
+
+let index = 0;
+const slides = document.getElementById("slides");
+const total = slides.children.length;
+
+setInterval(() => {
+  index++;
+  if (index >= total) {
+    index = 0;
+  }
+  slides.style.transform = `translateX(-${index * 100}%)`;
+}, 4000); // 4000 = เปลี่ยนรูปทุก 4 วิ (ปรับได้)
+</script>
+
+
+</body>
+</html>
