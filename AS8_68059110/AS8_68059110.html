@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Movie Review Website</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+
+/* พื้นหลังเว็บ */
+body{
+font-family:'Segoe UI',sans-serif;
+background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+color:white;
+}
+
+/* Navbar */
+.navbar{
+background:linear-gradient(90deg,#0f2027,#2c5364);
+box-shadow:0 5px 20px rgba(0,0,0,0.6);
+}
+
+/* Banner */
+.banner{
+height:450px;
+background:
+linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.7)),
+url("https://images.unsplash.com/photo-1489599849927-2ee91cede3ba");
+background-size:cover;
+background-position:center;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+color:white;
+}
+
+.banner h1{
+font-size:60px;
+font-weight:bold;
+letter-spacing:3px;
+text-shadow:0 0 20px #00eaff;
+}
+
+.banner p{
+font-size:22px;
+opacity:0.9;
+}
+
+/* Card รีวิวหนัง */
+.card{
+border:none;
+border-radius:18px;
+overflow:hidden;
+background:#16232d;
+box-shadow:0 10px 30px rgba(0,0,0,0.7);
+transition:0.4s;
+}
+
+.card:hover{
+transform:translateY(-12px) scale(1.03);
+box-shadow:0 15px 40px rgba(0,255,255,0.3);
+}
+
+.card img{
+height:320px;
+object-fit:cover;
+}
+
+/* ชื่อหนัง */
+.card-title{
+font-weight:bold;
+color:#00eaff;
+font-size:22px;
+}
+
+/* ปุ่ม */
+.btn-glow{
+background:linear-gradient(45deg,#00eaff,#00ffa6);
+border:none;
+color:black;
+padding:10px 22px;
+border-radius:25px;
+font-weight:bold;
+box-shadow:0 0 15px rgba(0,255,255,0.6);
+transition:0.3s;
+}
+
+.btn-glow:hover{
+transform:scale(1.1);
+box-shadow:
+0 0 15px #00eaff,
+0 0 30px #00ffa6;
+}
+
+/* Modal */
+.modal-content{
+background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+color:white;
+border:none;
+border-radius:15px;
+box-shadow:0 0 25px rgba(0,255,255,0.4);
+}
+
+.modal-header{
+border-bottom:1px solid rgba(255,255,255,0.1);
+}
+
+.modal-footer{
+border-top:1px solid rgba(255,255,255,0.1);
+}
+
+.form-control{
+background:#0f1c24;
+border:1px solid #00eaff;
+color:white;
+}
+
+.form-control:focus{
+box-shadow:0 0 10px #00eaff;
+border-color:#00eaff;
+}
+
+/* Footer */
+.footer{
+background:#0b141a;
+padding:50px 0;
+margin-top:70px;
+color:#ccc;
+}
+
+.footer a{
+color:#00eaff;
+text-decoration:none;
+}
+
+.footer a:hover{
+color:#00ffa6;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark">
+
+<div class="container">
+
+<a class="navbar-brand fw-bold">🎬 Zeniiyaa Movie Review</a>
+
+<button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#menu">
+<span class="navbar-toggler-icon"></span>
+</button>
+
+<div class="collapse navbar-collapse" id="menu">
+
+<ul class="navbar-nav ms-auto">
+
+<li class="nav-item">
+<a class="nav-link">หน้าแรก</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link">รีวิวหนัง</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link">Top Movies</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" data-bs-toggle="modal" data-bs-target="#contactModal">
+ติดต่อเรา
+</a>
+</li>
+
+</ul>
+
+</div>
+</div>
+</nav>
+
+<!-- Banner -->
+<section class="banner">
+
+<div>
+<h1>Zeniiyaa Movie Review</h1>
+<p>รีวิวหนังใหม่ • หนังดัง • หนังน่าดู</p>
+</div>
+
+</section>
+<!-- Modal ติดต่อเรา -->
+<div class="modal fade" id="contactModal" tabindex="-1">
+
+<div class="modal-dialog modal-dialog-centered">
+
+<div class="modal-content">
+
+<div class="modal-header">
+<h5 class="modal-title">🎬 ติดต่อทีมรีวิวหนัง</h5>
+<button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+</div>
+
+<div class="modal-body">
+
+<form>
+
+<div class="mb-3">
+<label class="form-label">ชื่อของคุณ</label>
+<input type="text" class="form-control" placeholder="กรอกชื่อ">
+</div>
+
+<div class="mb-3">
+<label class="form-label">อีเมล</label>
+<input type="email" class="form-control" placeholder="example@email.com">
+</div>
+
+<div class="mb-3">
+<label class="form-label">หัวข้อ</label>
+<input type="text" class="form-control" placeholder="หัวข้อที่ต้องการติดต่อ">
+</div>
+
+<div class="mb-3">
+<label class="form-label">ข้อความ</label>
+<textarea class="form-control" rows="4" placeholder="พิมพ์ข้อความ..."></textarea>
+</div>
+
+</form>
+
+</div>
+
+<div class="modal-footer">
+
+<button class="btn btn-secondary" data-bs-dismiss="modal">
+ยกเลิก
+</button>
+
+<button class="btn btn-success">
+ส่งข้อความ
+</button>
+
+</div>
+
+</div>
+</div>
+</div>
+
+<!-- Movie Cards -->
+<div class="container mt-5">
+
+<div class="row g-4">
+
+<!-- Movie 1 -->
+<div class="col-md-4">
+<div class="card">
+<img src="https://images2.minutemediacdn.com/image/upload/c_fill,w_720,ar_16:9,f_auto,q_auto,g_auto/shape/cover/sport/646987-jasin-boland-c-2012-warner-bros-entertainment-inc-54e2f8c553776eafbfd8ede11121a700.jpg" class="card-img-top">
+<div class="card-body text-center">
+<h5 class="card-title">Action Movie</h5>
+<p>หนังแอคชั่นสุดมันส์ ฉากต่อสู้ตื่นเต้นตลอดเรื่อง</p>
+<button class="btn-glow">อ่านรีวิว</button>
+</div>
+</div>
+</div>
+
+<!-- Movie 2 -->
+<div class="col-md-4">
+<div class="card">
+<img src="https://thethaiger.com/wp-content/uploads/2023/02/One-Day-movie-1.jpg" class="card-img-top">
+<div class="card-body text-center">
+<h5 class="card-title">Romantic Movie</h5>
+<p>เรื่องราวความรักสุดซึ้งที่ทำให้คุณประทับใจ</p>
+<button class="btn-glow">อ่านรีวิว</button>
+</div>
+</div>
+</div>
+
+<!-- Movie 3 -->
+<div class="col-md-4">
+<div class="card">
+<img src="https://i.guim.co.uk/img/media/fd806ba9bf45eb5c0e87e3d4f9fa1582d62133c6/0_182_6000_3600/master/6000.jpg?width=1200&height=900&quality=85&auto=format&fit=crop&s=1cf9d2352fbb99989ee5d8af0f1e914e" class="card-img-top">
+<div class="card-body text-center">
+<h5 class="card-title">Horror Movie</h5>
+<p>หนังสยองขวัญที่ทำให้คุณลุ้นจนแทบหยุดหายใจ</p>
+<button class="btn-glow">อ่านรีวิว</button>
+</div>
+</div>
+</div>
+
+<!-- Movie 4 -->
+<div class="col-md-4">
+<div class="card">
+<img src="https://media.timeout.com/images/106154645/750/562/image.jpg" class="card-img-top">
+<div class="card-body text-center">
+<h5 class="card-title">Sci-Fi Movie</h5>
+<p>การผจญภัยในโลกอนาคตสุดล้ำ</p>
+<button class="btn-glow">อ่านรีวิว</button>
+</div>
+</div>
+</div>
+
+<!-- Movie 5 -->
+<div class="col-md-4">
+<div class="card">
+<img src="https://hips.hearstapps.com/hmg-prod/images/drama-movies-68c44d8f5ee14.jpeg?crop=0.8888888888888888xw:1xh;center,top&resize=1200:*" class="card-img-top">
+<div class="card-body text-center">
+<h5 class="card-title">Drama Movie</h5>
+<p>เรื่องราวชีวิตที่เข้มข้นและกินใจ</p>
+<button class="btn-glow">อ่านรีวิว</button>
+</div>
+</div>
+</div>
+
+<!-- Movie 6 -->
+<div class="col-md-4">
+<div class="card">
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8EP47iNinmSuYNE3nrDY_SXgx_XWBUX_V4g&s" class="card-img-top">
+<div class="card-body text-center">
+<h5 class="card-title">Fantasy Movie</h5>
+<p>โลกเวทมนตร์และการผจญภัยเหนือจินตนาการ</p>
+<button class="btn-glow">อ่านรีวิว</button>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<!-- Footer --> 
+ <footer class="footer"> 
+    <div class="container"> 
+        <div class="row">
+            <div class="col-md-4">
+                 <h5>ติดต่อเรา</h5> 
+                 <p>✉️ Email : Mathurada.pha@spumail.net</p> 
+                 <p>📞 Phone : 099-999-9999</p> 
+                 <p>📍 Bangkok Thailand</p> 
+                </div> 
+            <div class="col-md-4">
+                 <h5>Social Media</h5>
+                  <p><a href="#">Facebook</a></p>
+                  <p><a href="#">Instagram</a></p> 
+                  <p><a href="#">Twitter</a></p>
+                 </div> 
+            <div class="col-md-4">
+                 <h5>About</h5>
+                  <p>รีวิวหนังแบบคนดูจริง เจ็บจริง ไม่มีอวย! เพราะเวลาของคุณมีค่า ผมเลยขออาสาไปพิสูจน์ให้ก่อนว่าเรื่องไหนรุ่งหรือเรื่องไหนร่วง สรุปเนื้อๆ เน้นๆ แบบไม่อ้อมค้อม เพื่อให้คุณตัดสินใจได้ง่ายขึ้นก่อนกดซื้อตั๋วหรือกดเพลย์</p>
+                 </div> </div> <hr> 
+            <p class="text-center"> © 2026 Mathurada Phayungton</p> </div> </footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
